@@ -1,6 +1,11 @@
+cl\biblioteca\libro\LibroRepository.class
 cl\biblioteca\autor\Autor.class
-cl\biblioteca\autor\AutorRepository.class
 cl\biblioteca\BibliotecaApplication.class
+cl\biblioteca\libro\LibroController.class
+cl\biblioteca\libro\LibroRepositoryInterface.class
+cl\biblioteca\autor\AutorRepository.class
 cl\biblioteca\autor\AutorController.class
 cl\biblioteca\autor\AutorService.class
+cl\biblioteca\libro\LibroService.class
 cl\biblioteca\autor\AutorRepositoryInterface.class
+cl\biblioteca\libro\Libro.class

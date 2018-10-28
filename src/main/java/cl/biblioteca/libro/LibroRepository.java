@@ -1,4 +1,4 @@
-package cl.biblioteca.autor;
+package cl.biblioteca.libro;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,51 +10,58 @@ import javax.persistence.Persistence;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import cl.biblioteca.autor.Autor;
+
+
 @Repository
 @Qualifier("H2")
-public class AutorRepository implements AutorRepositoryInterface{
+public class LibroRepository implements LibroRepositoryInterface{
 
-	private static EntityManager em;
-	private static EntityManagerFactory emf;
+	public static EntityManager em;
+	public static EntityManagerFactory emf;
 	
 	@SuppressWarnings("static-access")
-	public AutorRepository() {
+	public LibroRepository() {
 		this.emf = Persistence.createEntityManagerFactory("persistencia");
-		this.em = emf.createEntityManager();	
+		this.em = emf.createEntityManager();
 	}
 	
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Collection<Autor> listadoAutor() {
-		List<Autor> autores = (List<Autor>) em.createQuery("FROM Autor").getResultList(); 
-		return autores;
+	public Collection<Libro> listadoLibro() {
+
+		List<Libro> libros = (List<Libro>) em.createQuery("from Libro").getResultList();
+		return libros;
 	}
 
 	@Override
-	public Autor obtenerAutor(int idAutor) {
+	public Libro obtenerLibro(int idLibro) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Autor actualizarAutor(Autor autor) {
+	public Libro actualizarLibro(Libro Libro) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void agregarAutor(Autor autor) {
+	public void agregarLibro(Libro libro, Autor autor) {
+		// TODO Auto-generated method stub
 		em.getTransaction().begin();
-		em.persist(autor);		
-		em.getTransaction().commit();		
+		libro.setAutor(autor);
+		em.persist(libro);
+		em.getTransaction().commit();
+		
 	}
 
 	@Override
-	public void eliminarAutor(int idAutor) {
+	public void eliminarLibro(Libro libro) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 }
-  

@@ -8,6 +8,8 @@
   <persistence-unit name="persistencia">
   
   	<!-- Representamos las clases -->
+  	<class>cl.biblioteca.autor.Autor</class>
+  	<class>cl.biblioteca.libro.Libro</class>
   	
     <properties>
         <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
